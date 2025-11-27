@@ -20,6 +20,7 @@ function ansattArtikler(index) {
       <p>Kontor: ${ansatt.kontor}</p>
       <p>E-post: ${ansatt.epost}</p>
       <p>Kursansvar: ${kursInfo}</p>
+      <button onclick="slettAnsatt(${index})">Slett</button>
     </article>
   `;
 
@@ -84,6 +85,12 @@ function alleKurs() {
 alleKurs();
 
 // Funksjon 5 - filtrere undervisere og administrasjon
+// Knapp til å vise alle ansatte
+function visAlle() {
+  alleAnsatte();
+}
+
+// Knapp til å vise undervisere
 function filtrerUndervisere() {
   const undervisere = document.getElementById(""); // Fyll inn riktig id
   undervisere.innerHTML = ""; // Tømmer først
@@ -100,6 +107,7 @@ function filtrerUndervisere() {
   }
 }
 
+// Knapp til å vise administrasjonen
 function filtrerAdministrasjon() {
   const administrasjon = document.getElementById(""); // Fyll inn riktig id
   administrasjon.innerHTML = ""; // Tømmer først
@@ -117,4 +125,51 @@ function filtrerAdministrasjon() {
   }
 }
 
-// Funksjon 6 -
+// Funksjon 6 - Ta imot paramtere for all informasjon fra ansatt og legge til ansatt i registeret
+function leggTilAnsatt(navn, stilling, kontor, epost, kursansvar) {
+  // Lager et nytt ansatt-objekt
+  const nyAnsatt = {
+    navn: navn,
+    stilling: stilling,
+    kontor: kontor,
+    epost: epost,
+    kursansvar: kursansvar, // Dette skal være et array
+  };
+
+  // Legger til den nye ansatte i ansatte-arrayet
+  ansatte.push(nyAnsatt);
+
+  // Oppdaterer visningen (viser alle ansatte inkludert den nye)
+  alleAnsatte();
+}
+
+function hentOgLeggTil() {
+  const navn = document.getElementById("navn").value;
+  const stilling = document.getElementById("stilling").value;
+  const kontor = document.getElementById("kontor").value;
+  const epost = document.getElementById("epost").value;
+  const kursInput = document.getElementById("kursansvar").value;
+
+  // Gjør kursansvar om til et array (split på komma)
+  let kursansvar = [];
+  if (kursInput.trim() !== "") {
+    kursansvar = kursInput.split(",").map((kurs) => kurs.trim());
+  }
+
+  // Kaller funksjonen for å legge til
+  leggTilAnsatt(navn, stilling, kontor, epost, kursansvar);
+
+  // Tømmer inputfeltene
+  document.getElementById("navn").value = "";
+  document.getElementById("stilling").value = "";
+  document.getElementById("kontor").value = "";
+  document.getElementById("epost").value = "";
+  document.getElementById("kursansvar").value = "";
+}
+
+// Funksjon 7 - Slett ansatt fra registeret
+function slettAnsatt(index) {
+  ansatte.splice(index, 1);
+
+  alleAnsatte();
+}
