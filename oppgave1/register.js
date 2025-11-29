@@ -1,4 +1,4 @@
-//Datastruktur for stillinger
+// Datastruktur for stillinger
 const stillinger = {
   rektor: "Rektor",
   dekan: "Dekan",
@@ -7,14 +7,14 @@ const stillinger = {
   lektor: "Lektor",
 };
 
-//Datastruktur for ansatte på hiof
+// Datastruktur for ansatte på hiof
 const ansatte = [
   {
     navn: "Lars-Petter Jelsness-Jørgensen",
-    stilling: stillinger.rektor, //Henter verdien fra stillinger datastrukturen
+    stilling: stillinger.rektor, // Henter verdien fra stillinger datastrukturen
     kontor: "M-408(1) og A3-001(1)",
     epost: "lars.p.jelsness-jorgensen@hiof.no",
-    kursansvar: [],
+    kursansvar: [], // Tomme array fordi de ikke har ansvar for noen kurs
   },
   {
     navn: "Randi Magnus Sommerfelt",

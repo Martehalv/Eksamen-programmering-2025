@@ -1,13 +1,13 @@
 // Funksjon 1 - Et ansatt kort skal returneres
 // Funksjon til informasjon om artikler artiklene/kortene
 function ansattArtikler(index) {
+  // Henter ut kun en ansatt
   const ansatt = ansatte[index];
 
   // Her måtte det lages en if og loop for kursansvar delen, slik at den får med alle kusene til hver ansatt (Disse er i array i register.js).
   let kursInfo = "";
   if (ansatt.kursansvar.length > 0) {
-    // Sjekker arrayet for kurs
-    kursInfo = ansatt.kursansvar.join(", ");
+    kursInfo = ansatt.kursansvar.join(", "); // Join gjør at de kommer etter hverandre med et "," imellom kursene
   } else {
     // De som ikke har ansvar for noe kurs får dette.
     kursInfo = "Ingen kursansvar";
@@ -20,7 +20,7 @@ function ansattArtikler(index) {
       <p>Kontor: ${ansatt.kontor}</p>
       <p>E-post: ${ansatt.epost}</p>
       <p>Kursansvar: ${kursInfo}</p>
-      <button onclick="slettAnsatt(${index})">Slett</button>
+      <button onclick="slettAnsatt(${slett})">Slett ansatt</button>
     </article>
   `;
 
@@ -32,8 +32,8 @@ function alleAnsatte() {
   const alle = document.getElementById("ansatte-info");
   alle.innerHTML = "";
 
+  // Loop som starter på 0, så 1, så plusser den på 1 etter hver gang til det ikke er fler igjen i ansatte arrayet
   for (let i = 0; i < ansatte.length; i++) {
-    // Loop som starter på 0, så 1, så plusser den på 1 etter hver gang til det ikke er fler igjen i ansatte arrayet
     alle.innerHTML = alle.innerHTML + ansattArtikler(i); // Bruker alle ansatte i arrayet (i).
   }
 }
@@ -42,15 +42,15 @@ alleAnsatte(); // Lister ut alle ansatte
 
 // Funksjon 3 - Ta imot og filtrere stilling
 function filtrerStilling(stilling) {
-  const alle = document.getElementById("ansatte-info");
-  alle.innerHTML = "";
+  const stilling = document.getElementById("ansatte-info");
+  stilling.innerHTML = "";
 
   // En loop som går igjennom alle ansatte
   for (let i = 0; i < ansatte.length; i++) {
     // Sjekker om den ansattes stilling matcher den vi søker etter
     if (ansatte[i].stilling === stilling) {
       // Hvis match, legg til kortet
-      alle.innerHTML += ansattArtikler(i);
+      stilling.innerHTML += ansattArtikler(i);
     }
   }
 }
@@ -168,8 +168,8 @@ function hentOgLeggTil() {
 }
 
 // Funksjon 7 - Slett ansatt fra registeret
-function slettAnsatt(index) {
-  ansatte.splice(index, 1);
+function slettAnsatt(slett) {
+  ansatte.splice(slett, 1);
 
   alleAnsatte();
 }
