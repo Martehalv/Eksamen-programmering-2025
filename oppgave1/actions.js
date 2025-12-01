@@ -19,7 +19,7 @@ function ansattArtikler(index) {
       <p>Kontor: ${ansatt.kontor}</p>
       <p>E-post: ${ansatt.epost}</p>
       <p>Kursansvar: ${Kurs}</p>
-      <button onclick="slett-knapp(${slett})">Slett ansatt</button>
+      <button onclick="slettAnsatt(${slett})">Slett ansatt</button>
     </article>
   `;
 
@@ -144,13 +144,9 @@ function hentAnsatt() {
   const epost = document.getElementById("epost").value;
   const kurs = document.getElementById("kursansvar").value;
 
-  // Gjør kursansvar om til et array (split på komma)
-  let kursansvar = [];
-  if (kurs.trim() !== "") {
-    kursansvar = kurs.split(",").map((kurs) => kurs.trim());
-  }
+  // Gjør kursansvar om til et array
+  let kursansvar = kurs.split(",").map((k) => k.trim()); // Fått av chat
 
-  // Kaller funksjonen for å legge til
   leggTilAnsatt(navn, stilling, kontor, epost, kursansvar);
 
   // Tømmer inputfeltene
@@ -163,7 +159,7 @@ function hentAnsatt() {
 
 // Funksjon 7 - Slett ansatt fra registeret
 function slettAnsatt(slett) {
-  ansatte.splice(slett, 1);
+  ansatte.splice(slett, 1); // .splice() gjør at den fjerner ansatt arrayet
 
   alleAnsatte();
 }
