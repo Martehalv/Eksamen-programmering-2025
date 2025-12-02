@@ -1,59 +1,53 @@
 // Datastruktur for stillinger
-const stillinger = {
-  rektor: "Rektor",
-  dekan: "Dekan",
-  professor: "Professor",
-  vaktmester: "Vaktmester",
-  lektor: "Lektor",
-};
+const stillinger = ["Rektor", "Dekan", "Vaktmester", "Professor", "Lektor"];
 
 // Datastruktur for ansatte på hiof
 const ansatte = [
   {
     navn: "Lars-Petter Jelsness-Jørgensen",
-    stilling: stillinger.rektor, // Henter verdien fra stillinger datastrukturen
+    stilling: stillinger[0], // Bruker index for å gi riktig stilling
     kontor: "M-408(1) og A3-001(1)",
     epost: "lars.p.jelsness-jorgensen@hiof.no",
     kursansvar: [], // Tomme array fordi de ikke har ansvar for noen kurs
   },
   {
     navn: "Randi Magnus Sommerfelt",
-    stilling: stillinger.dekan,
+    stilling: stillinger[1],
     kontor: "A3-004(2) og M-404",
     epost: "randi.sommerfelt@hiof.no",
     kursansvar: [],
   },
   {
     navn: "Ann-Chatrin Linqvist Leonardsen",
-    stilling: stillinger.dekan,
+    stilling: stillinger[1],
     kontor: "M-405",
     epost: "ann.c.leonardsen@hiof.no",
     kursansvar: [],
   },
   {
     navn: "Per Johansen",
-    stilling: stillinger.vaktmester,
+    stilling: stillinger[2],
     kontor: "V001",
     epost: "per.johansen@hiof.no",
     kursansvar: [],
   },
   {
     navn: "Khalid Ali",
-    stilling: stillinger.vaktmester,
+    stilling: stillinger[2],
     kontor: "V002",
     epost: "khalid.ali@hiof.no",
     kursansvar: [],
   },
   {
     navn: "Siri Hansen",
-    stilling: stillinger.vaktmester,
+    stilling: stillinger[2],
     kontor: "V003",
     epost: "siri.hansen@hiof.no",
     kursansvar: [],
   },
   {
     navn: "Hilde Wågsås Afdal",
-    stilling: stillinger.professor,
+    stilling: stillinger[3],
     kontor: "E1-054(2)",
     epost: "hilde.afdal@hiof.no",
     kursansvar: [
@@ -64,7 +58,7 @@ const ansatte = [
   },
   {
     navn: "Cecilia Alvstad",
-    stilling: stillinger.professor,
+    stilling: stillinger[3],
     kontor: "A3-106(2)",
     epost: "cecilia.alvstad@hiof.no",
     kursansvar: [
@@ -75,14 +69,14 @@ const ansatte = [
   },
   {
     navn: "Mona Jerndahl Fineide",
-    stilling: stillinger.professor,
+    stilling: stillinger[3],
     kontor: "A-336",
     epost: "mona.j.fineide@hiof.no",
     kursansvar: ["Samfunnsvitenskap"],
   },
   {
     navn: "Anders Dechsling",
-    stilling: stillinger.professor,
+    stilling: stillinger[3],
     kontor: "F1-083",
     epost: "anders.dechsling@hiof.no",
     kursansvar: [
@@ -92,7 +86,7 @@ const ansatte = [
   },
   {
     navn: "Lilliana Andrea Del Busso",
-    stilling: stillinger.professor,
+    stilling: stillinger[3],
     kontor: "A-303",
     epost: "lilliana.a.busso@hiof.no",
     kursansvar: [
@@ -102,7 +96,7 @@ const ansatte = [
   },
   {
     navn: "Tore Marius Akerbæk",
-    stilling: stillinger.lektor,
+    stilling: stillinger[4],
     kontor: "D1-016",
     epost: "tore.m.akerbak@hiof.no",
     kursansvar: [
@@ -114,7 +108,7 @@ const ansatte = [
   },
   {
     navn: "Hege Hedlund Andersen",
-    stilling: stillinger.lektor,
+    stilling: stillinger[4],
     kontor: "A-201",
     epost: "hege.h.andersen@hiof.no",
     kursansvar: [
@@ -125,7 +119,7 @@ const ansatte = [
   },
   {
     navn: "Petter André Høntorp Arvesen",
-    stilling: stillinger.lektor,
+    stilling: stillinger[4],
     kontor: "A-335",
     epost: "petter.a.arvesen@hiof.no",
     kursansvar: [
@@ -135,7 +129,7 @@ const ansatte = [
   },
   {
     navn: "Fred Rune Bjordal",
-    stilling: stillinger.lektor,
+    stilling: stillinger[4],
     kontor: "E1-054(5)",
     epost: "fred.r.bjordal@hiof.no",
     kursansvar: [
@@ -145,7 +139,7 @@ const ansatte = [
   },
   {
     navn: "Therese Westreng Borgland",
-    stilling: stillinger.lektor,
+    stilling: stillinger[4],
     kontor: "C2-038",
     epost: "therese.w.borgland@hiof.no",
     kursansvar: [
@@ -155,14 +149,14 @@ const ansatte = [
   },
   {
     navn: "Rolf-Einar Grini Bryggfjell",
-    stilling: stillinger.lektor,
+    stilling: stillinger[4],
     kontor: "S-407",
     epost: "rolf.e.bryggfjell@hiof.no",
     kursansvar: ["Matematikk for Tress og Y-veien, del II"],
   },
   {
     navn: "Siri Ellen Adelaide Brynhildsen",
-    stilling: stillinger.lektor,
+    stilling: stillinger[4],
     kontor: "N-321",
     epost: "siri.e.brynhildsen@hiof.no",
     kursansvar: [
@@ -172,21 +166,21 @@ const ansatte = [
   },
   {
     navn: "Veronica Eidesgaard",
-    stilling: stillinger.lektor,
+    stilling: stillinger[4],
     kontor: "A-230(2)",
     epost: "veronica.eidesgaard@hiof.no",
     kursansvar: ["Faglig ledelse, samhandling og pasientsikkerhet"],
   },
   {
     navn: "Silje Marie Engen",
-    stilling: stillinger.lektor,
+    stilling: stillinger[4],
     kontor: "N-226",
     epost: "silje.m.engen@hiof.no",
     kursansvar: ["Psykisk helsearbeid", "Grunnleggende sykepleie"],
   },
   {
     navn: "Marius Geitle",
-    stilling: stillinger.lektor,
+    stilling: stillinger[4],
     kontor: "D1-012",
     epost: "marius.geitle@hiof.no",
     kursansvar: ["Big Data: Lagring og Bearbeiding - emneansvarlig"],
