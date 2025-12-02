@@ -1,0 +1,81 @@
+/*CSS*/
+body {
+  margin: 0 auto;
+  background-color: rgb(255, 244, 244);
+}
+
+/*Header*/
+header {
+  background-color: rgb(110, 199, 228);
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+  width: 100%;
+}
+
+header h1 {
+  font-size: 2.5rem;
+}
+
+/*Main register*/
+
+main h2 {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.filter-knapper-1 {
+  display: flex;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.5rem;
+  gap: 10px;
+}
+
+.filter-knapper-2 {
+  display: flex;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.5rem;
+  gap: 10px;
+}
+
+.filter-knapper-2 p {
+  font-size: 1.1rem;
+}
+
+button {
+  padding: 0.2rem 1rem;
+  font-size: 0.9rem;
+  background-color: rgb(197, 225, 253);
+  border: solid;
+  border-radius: 5px;
+  border-color: rgb(88, 185, 249);
+}
+
+#ansatte-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 1rem 0;
+  gap: 20px;
+}
+
+/*Footer*/
+footer {
+  padding: 1.5rem 0;
+}
+
+footer h2 {
+  font-size: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+footer ul li {
+  padding: 0.4rem;
+  font-size: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}

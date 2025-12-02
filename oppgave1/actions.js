@@ -90,7 +90,7 @@ function kursListe() {
 
 kursListe();
 
-// Funksjon 5 - filtrere undervisere og administrasjon
+// Funksjon 5 - filtrere undervisere og administrasjon + viser alle ansatte
 // Knapp til å vise alle ansatte
 function alleAnsatteKnapp() {
   alleAnsatteInfo(); //Kjører denne funksjonen siden jeg har den allerede
