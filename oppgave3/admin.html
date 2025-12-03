@@ -11,6 +11,31 @@
       <h1>Høgskolen JS</h1>
     </header>
     <main class="admin">
+      <h2>Legg til ansatt</h2>
+      <section class="skjema">
+        <form class="legg-til-ansatt">
+          <label for="name">Fornavn </label>
+          <input type="text" id="fornavn" />
+          <label for="name">Etternavn </label>
+          <input type="text" id="etternavn" />
+          <label for="name">Stilling </label>
+          <select id="stilling-dropdown">
+            <option value="">Velg stilling</option>
+            <option value="Rektor">Rektor</option>
+            <option value="Dekan">Dekan</option>
+            <option value="Vaktmester">Vaktmester</option>
+            <option value="Professor">Professor</option>
+            <option value="Lektor">Lektor</option>
+          </select>
+          <label for="name">Kontor </label>
+          <input type="text" id="kontor" />
+          <label for="name">Epost </label>
+          <input type="text" id="epost" />
+          <label for="name">Kursansvar </label>
+          <input type="text" id="kursansvar" />
+        </form>
+        <button onclick="hentAnsatt()">Legg til ansatt</button>
+      </section>
       <h2>Ansatte</h2>
       <section>
         <article id="ansatte-info"></article>

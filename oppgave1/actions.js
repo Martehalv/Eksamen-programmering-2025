@@ -15,13 +15,15 @@ function ansattArtikler(i) {
   }
 
   // Lager html koden for et ansatt kort
+  // #OPPD3 La til <span class="titler"> og <a href="epost"> på kortene for å kunne endre CSS på de
+  // #OPPD3 Endra fra ${ansatt.navnnavn} til ${ansatt.fornavn}${ansatt.etternavn}
   const ansattInfo = `
     <article class="ansatt-kort">
-      <h3>${ansatt.navn}</h3>
-      <p>Stilling: ${ansatt.stilling}</p>
-      <p>Kontor: ${ansatt.kontor}</p>
-      <p>E-post: ${ansatt.epost}</p>
-      <p>Kursansvar: ${Kurs}</p>
+      <h3>${ansatt.fornavn} ${ansatt.etternavn}</h3>
+      <p><span class="titler">Stilling: </span>${ansatt.stilling}</p>
+      <p><span class="titler">Kontor: </span>${ansatt.kontor}</p>
+      <p><span class="titler">E-post: </span><a href="epost">${ansatt.epost}</a></p>
+      <p><span class="titler">Kursansvar: </span>${Kurs}</p>
       <button onclick="slettAnsatt(${i})">Slett ansatt</button> 
     </article>
   `;
@@ -127,10 +129,19 @@ function filtrerAdministrasjonKnapp() {
 }
 
 // Funksjon 6 - Ta imot paramtere for all informasjon fra ansatt og legge til ansatt i registeret
-function leggTilAnsatt(navn, stilling, kontor, epost, kursansvar) {
+//OPPD3 endra fra bare navn til fornavn og etternavn i hele funksjonen som handler om å legge til ansatt
+function leggTilAnsatt(
+  fornavn,
+  etternavn,
+  stilling,
+  kontor,
+  epost,
+  kursansvar
+) {
   // Lager et nytt ansatt kort informasjon
   const nyAnsatt = {
-    navn: navn,
+    fornavn: fornavn,
+    etternavn: etternavn,
     stilling: stilling,
     kontor: kontor,
     epost: epost,
@@ -146,7 +157,8 @@ function leggTilAnsatt(navn, stilling, kontor, epost, kursansvar) {
 
 function hentAnsatt() {
   //Henter verdiene i inputene (skal legge til disse i deloppgave 3).
-  const navn = document.getElementById("navn").value;
+  const fornavn = document.getElementById("fornavn").value;
+  const etternavn = document.getElementById("etternavn").value;
   const stilling = document.getElementById("stilling").value;
   const kontor = document.getElementById("kontor").value;
   const epost = document.getElementById("epost").value;
@@ -158,10 +170,11 @@ function hentAnsatt() {
   // .map() går gjennom hvert element i arrayet, her er også .trim() inni som fjerner luft/space rundt teksten
 
   //Legger til ansatt
-  leggTilAnsatt(navn, stilling, kontor, epost, kursansvar);
+  leggTilAnsatt(fornavn, etternavn, stilling, kontor, epost, kursansvar);
 
   // Tømmer inputfeltene etter den er lagt til
-  document.getElementById("navn").value = "";
+  document.getElementById("fornavn").value = "";
+  document.getElementById("etternavn").value = "";
   document.getElementById("stilling").value = "";
   document.getElementById("kontor").value = "";
   document.getElementById("epost").value = "";

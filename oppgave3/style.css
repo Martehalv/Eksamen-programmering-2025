@@ -1,7 +1,7 @@
 /*CSS*/
 body {
   margin: 0 auto;
-  background-color: rgb(255, 244, 244);
+  background-color: rgb(235, 232, 232);
 }
 
 /*Header*/
@@ -17,12 +17,12 @@ header h1 {
   font-size: 2.5rem;
 }
 
-/*Main register*/
+/*Main*/
 
 main h2 {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .filter-knapper-1 {
@@ -64,12 +64,52 @@ button {
 }
 
 #ansatte-info article {
-  background-color: #c9c7c7;
+  background-color: #ffffff;
   padding: 1.5rem;
+  border-radius: 3px;
 }
+
+.titler {
+  font-weight: bold;
+}
+
+/*Main register*/
 
 .register #ansatte-info button {
   display: none;
+}
+
+/*Main admin*/
+.skjema {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.legg-til-ansatt {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  max-width: 200px;
+  gap: 10px;
+}
+
+.skjema .legg-til-ansatt {
+  padding: 1.5rem;
+}
+
+.legg-til-ansatt,
+label,
+input,
+select {
+  padding: 0.3rem;
+}
+
+.skjema form label {
+  font-size: 1.1rem;
+}
+
+.skjema button {
+  padding: 1rem 2rem;
 }
 
 /*Footer*/
