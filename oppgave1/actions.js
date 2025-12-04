@@ -100,7 +100,7 @@ function alleAnsatteKnapp() {
 
 // Knapp til å vise undervisere
 function filtrerUndervisereKnapp() {
-  const undervisere = document.getElementById("undervisere");
+  const undervisere = document.getElementById("ansatte-info"); // #OPPD3 Bytta id fra "undervisere" til "ansatte-info", innholdet funka ikke med de idene jeg hadde.
   undervisere.innerHTML = ""; // Tømmer først
 
   // Loop for å gå gjennom alle ansatte
@@ -116,7 +116,7 @@ function filtrerUndervisereKnapp() {
 
 // Knapp til å vise administrasjonen (gjør akkurat det samme som på undervisere, bare med administrasjon)
 function filtrerAdministrasjonKnapp() {
-  const administrasjon = document.getElementById("administrasjon");
+  const administrasjon = document.getElementById("ansatte-info"); // #OPPD3 Bytta id fra "administrasjon" til "ansatte-info", innholdet funka ikke med de idene jeg hadde.
   administrasjon.innerHTML = "";
 
   for (let i = 0; i < ansatte.length; i++) {
@@ -129,7 +129,7 @@ function filtrerAdministrasjonKnapp() {
 }
 
 // Funksjon 6 - Ta imot paramtere for all informasjon fra ansatt og legge til ansatt i registeret
-//OPPD3 endra fra bare navn til fornavn og etternavn i hele funksjonen som handler om å legge til ansatt
+// #OPPD3 endra fra bare navn til fornavn og etternavn i hele funksjonen som handler om å legge til ansatt
 function leggTilAnsatt(
   fornavn,
   etternavn,
