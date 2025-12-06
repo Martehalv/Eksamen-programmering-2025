@@ -1,76 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Refaktorering</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        //Denne koden finner det lengste ordet i en liste med ord.
-        function start() {
-            let ordListe = ["kode", "programmering", "design", "data", "variabel"];
+      //Denne koden finner det lengste ordet i en liste med ord.
 
-            function finnLengsteOrd(liste) {
-                let lengste = "";
-                for (let i = 0; i < liste.length; i++) {
-                    let ord = liste[i];
-                    if (ord.length > lengste.length) {
-                        lengste = ord;
-                    } else {
-                        // gjør ingenting
-                    }
-                }
-                return lengste;
-            }
+      // Fjernet Start funksjonen. Trenger ikke 3 forskjellige funksjoner til å løse denne oppgaven.
+      let ordListe = ["kode", "programmering", "design", "data", "variabel"];
 
-            function skrivUtResultat() {
-                let resultat = finnLengsteOrd(ordListe);
-                console.log("Det lengste ordet i listen er: " + resultat);
-            }
+      function finnLengsteOrd(liste) {
+        // Fjerna "liste" siden jeg putta ordlista inni funksjonen, dermed er denne unødvendig.
+        let lengste = "";
 
-            skrivUtResultat();
+        for (let i = 0; i < liste.length; i++) {
+          let ord = liste[i];
+          if (ord.length > lengste.length) {
+            lengste = ord;
+          }
+          // Fjernet else i if siden den ikke gjorde noe. Trenger bare else HVIS noe annet skal skje enn det som skjer i if.
+        }
+        return lengste;
+      }
+
+      //Fjernet også skrivUtResultat funksjonen. Trenger ikke egen funksjon til å skrive ut resultatet.
+      let resultat = finnLengsteOrd(ordListe);
+      console.log("Det lengste ordet i listen er: " + resultat);
+
+      //Denne koden regner ut gjennomsnittsalderen til en gruppe personer.
+
+      // Her fjerna jeg også den første funksjonen startProgram().Trenger ikke så mange funksjoner for å løse denne oppgaven heller.
+      // Slår sammen hentAldre() og regnUtGjennomsnitt() siden hentAldre() var unødvendig å ha som egen funksjon når man kan skrive alt i en. De var også veldig like, så bedre å sammenslå de i regnUtGjennomsnitt().
+      function regnUtGjennomsnitt() {
+        // Fjernet alderArray som parameter her, og la heller personer listen inni funksjonen. Dette gjør det lettere og forståelig når jeg skal sammenslå funksjonene.
+        // Personer listen
+        let personer = [
+          { navn: "Ola", alder: 24 },
+          { navn: "Kari", alder: 32 },
+          { navn: "Per", alder: 29 },
+          { navn: "Anne", alder: 41 },
+        ];
+
+        // Ganske mye likt som det var før fra regnUtGjennomsnitt, men gjort noen endringer.
+        let sum = 0;
+        for (let i = 0; i < personer.length; i++) {
+          // Bytta alderArray.length til personer.length her, siden jeg ikke har parameter lenger. Her går den igjennom hele listen.
+          sum = sum + personer[i].alder; // Her skriver jeg direkte til lista siden den er i funksjonen (personer). Her legger den sammen alderene.
         }
 
-        start();
+        let gjennomsnitt = sum / personer.length; // Istedenfor alderArray.length her, byttet jeg til personer.length siden jeg har puttet personer inni funksjonen. Her finner den ut gjennomsnittet.
+        return gjennomsnitt;
+      }
 
-        //Denne koden regner ut gjennomsnittsalderen til en gruppe personer.
-        function startProgram() {
-            let personer = [
-                { navn: "Ola", alder: 24 },
-                { navn: "Kari", alder: 32 },
-                { navn: "Per", alder: 29 },
-                { navn: "Anne", alder: 41 }
-            ];
-
-            function hentAldre(liste) {
-                let alderArray = [];
-                for (let i = 0; i < liste.length; i++) {
-                    let person = liste[i];
-                    alderArray.push(person.alder);
-                }
-                return alderArray;
-            }
-
-            function regnUtGjennomsnitt(alderArray) {
-                let sum = 0;
-                for (let i = 0; i < alderArray.length; i++) {
-                    sum = sum + alderArray[i];
-                }
-                let gjennomsnitt = sum / alderArray.length;
-                return gjennomsnitt;
-            }
-
-            function visResultat() {
-                let alderArray = hentAldre(personer);
-                let gjennomsnitt = regnUtGjennomsnitt(alderArray);
-                console.log("Gjennomsnittsalderen er " + gjennomsnitt);
-            }
-
-            visResultat();
-        }
-
-        startProgram();
+      // Akkurat som i den første oppgaven, trenger man ikke en egen funksjon til å skrive ut resultat, så jeg tok vekk visResultat() funksjonen.
+      // I tillegg fjernet jeg denne: let alderArray = hentAldre(personer); Den gjør ingenting nå som jeg fjernet hentAldre() funksjonen og endret på koden.
+      let gjennomsnitt = regnUtGjennomsnitt(); // Fjernet alderArray parameteren i regnUtGjennomsnitt(). Trenger ikke noe her når jeg har endret koden og flyttet hele listen inni funksjonen.
+      console.log("Gjennomsnittsalderen er " + gjennomsnitt);
     </script>
-</body>
+  </body>
 </html>
