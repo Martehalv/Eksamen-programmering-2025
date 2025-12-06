@@ -16,7 +16,6 @@ function ansattArtikler(i) {
 
   // Lager html koden for et ansatt kort
   // #OPPD3 La til <span class="titler"> og <a href="epost"> på kortene for å kunne endre CSS på de
-  // #OPPD3 Endra fra ${ansatt.navnnavn} til ${ansatt.fornavn}${ansatt.etternavn}
   const ansattInfo = `
     <article class="ansatt-kort">
       <h3>${ansatt.fornavn} ${ansatt.etternavn}</h3>
@@ -31,12 +30,10 @@ function ansattArtikler(i) {
   //Returner html koden
   return ansattInfo;
 }
-
 // Funksjon 2 - Alle ansatt kort skal returneres
 function alleAnsatteInfo() {
   const alleAnsatte = document.getElementById("ansatte-info");
   alleAnsatte.innerHTML = ""; // TØmmer alleAnsatte
-
   // Loop som starter på 0, så 1, så plusser den på 1 etter hver gang til det ikke er fler igjen i ansatte arrayet
   for (let i = 0; i < ansatte.length; i++) {
     //Legger inn et kort for hver ansatt
@@ -71,7 +68,6 @@ function kursListe() {
     // En loop som går gjennom kursansvar arrayet til hver ansatt
     for (let j = 0; j < ansatte[i].kursansvar.length; j++) {
       const kursnavn = ansatte[i].kursansvar[j];
-
       // Sjekker om kurset er i listen (unngår duplikater med !)
       if (!kurs.includes(kursnavn)) {
         kurs.push(kursnavn); // Legger til kurset i det nye kurs arrayet
@@ -81,7 +77,6 @@ function kursListe() {
 
   // Lager <li> elementene i lista
   let liste = ""; //Tømmer listen først
-
   for (let i = 0; i < kurs.length; i++) {
     liste += `<li>${kurs[i]}</li>`; //Legger til kurs fra kurs arrayet i lista som <li> elementer
   }
@@ -90,7 +85,7 @@ function kursListe() {
   document.getElementById("kurs-liste").innerHTML = liste;
 }
 
-kursListe();
+kursListe(); // Lister ut kurslista
 
 // Funksjon 5 - filtrere undervisere og administrasjon + viser alle ansatte
 // Knapp til å vise alle ansatte
@@ -117,10 +112,11 @@ function filtrerUndervisereKnapp() {
 // Knapp til å vise administrasjonen (gjør akkurat det samme som på undervisere, bare med administrasjon)
 function filtrerAdministrasjonKnapp() {
   const administrasjon = document.getElementById("ansatte-info"); // #OPPD3 Bytta id fra "administrasjon" til "ansatte-info", innholdet funka ikke med de idene jeg hadde.
-  administrasjon.innerHTML = "";
+  administrasjon.innerHTML = ""; // Tømmer først
 
   for (let i = 0; i < ansatte.length; i++) {
     // Sjekker om stillingen er Rektor, Dekan eller Vaktmester
+    //.includes(ansatte[i].stilling) sjekker om arrayen inneholder stillingene
     if (["Rektor", "Dekan", "Vaktmester"].includes(ansatte[i].stilling)) {
       //Viser bare ansatte som er administrasjon
       administrasjon.innerHTML += ansattArtikler(i);
@@ -129,7 +125,6 @@ function filtrerAdministrasjonKnapp() {
 }
 
 // Funksjon 6 - Ta imot paramtere for all informasjon fra ansatt og legge til ansatt i registeret
-// #OPPD3 endra fra bare navn til fornavn og etternavn i hele funksjonen som handler om å legge til ansatt
 function leggTilAnsatt(
   fornavn,
   etternavn,
@@ -163,7 +158,6 @@ function hentAnsatt() {
   const kontor = document.getElementById("kontor").value;
   const epost = document.getElementById("epost").value;
   const kurs = document.getElementById("kursansvar").value;
-
   //Gjør kursansvar til array
   let kursansvar = kurs.split(",").map((k) => k.trim());
   // Gjør infromasjonen fra kursansvar inputen om til et array (.split()), slik som det er i registrer.js
@@ -185,7 +179,6 @@ function hentAnsatt() {
 function slettAnsatt(i) {
   //sletter en ansatt i (se i funksjon 1)
   ansatte.splice(i, 1); // .splice() gjør at den fjerner ansatt i arrayet
-
   //Viser den nye lista etter ansatt er slettet
   alleAnsatteInfo();
 }

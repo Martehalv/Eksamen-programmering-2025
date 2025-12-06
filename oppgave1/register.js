@@ -4,7 +4,7 @@ const stillinger = ["Rektor", "Dekan", "Vaktmester", "Professor", "Lektor"];
 // Datastruktur for ansatte på hiof
 const ansatte = [
   {
-    fornavn: "Lars-Petter", //#OPPD3 Endra navn til fornavn og etternavn på alle ansattet nedover i register.js
+    fornavn: "Lars-Petter",
     etternavn: "Jelsness-Jørgensen",
     stilling: stillinger[0], // Bruker index for å gi riktig stilling
     kontor: "M-408(1) og A3-001(1)",
