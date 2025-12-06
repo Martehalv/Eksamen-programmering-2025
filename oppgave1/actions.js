@@ -6,9 +6,9 @@ function ansattArtikler(i) {
 
   // Her måtte det lages en if for kursansvar delen, slik at den får med alle kusene til hver ansatt (Disse er i array i register.js).
   let Kurs = ""; // Tømmer Kurs først
+  // Sjekker om det er minst et kurs i arrayet
   if (ansatt.kursansvar.length > 0) {
-    // Sjekker om det er minst et kurs i arrayet
-    Kurs = ansatt.kursansvar.join(", "); // Join gjør at de kommer etter hverandre med et "," imellom kursene
+    Kurs = ansatt.kursansvar.join(", "); // Join gjør at de kommer etter hverandre med et ", " imellom kursene
   } else {
     // De som ikke har ansvar for noe kurs får dette.
     Kurs = "Ingen kursansvar";
