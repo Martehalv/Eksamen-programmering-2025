@@ -8,7 +8,8 @@ function ansattArtikler(i) {
   let Kurs = ""; // Tømmer Kurs først
   // Sjekker om det er minst et kurs i arrayet
   if (ansatt.kursansvar.length > 0) {
-    Kurs = ansatt.kursansvar.join(", "); // Join gjør at de kommer etter hverandre med et ", " imellom kursene
+    // Kilde: https://geraldclarkaudio.medium.com/javascript-if-else-else-if-statements-26d18456f304
+    Kurs = ansatt.kursansvar.join(", "); // Join gjør at de kommer etter hverandre med et ", " imellom kursene. Kilde: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
   } else {
     // De som ikke har ansvar for noe kurs får dette.
     Kurs = "Ingen kursansvar";
@@ -36,6 +37,7 @@ function alleAnsatteInfo() {
   alleAnsatte.innerHTML = ""; // TØmmer alleAnsatte
   // Loop som starter på 0, så 1, så plusser den på 1 etter hver gang til det ikke er fler igjen i ansatte arrayet
   for (let i = 0; i < ansatte.length; i++) {
+    //Kilde: https://www.w3schools.com/js/js_loop_for.asp
     //Legger inn et kort for hver ansatt
     alleAnsatte.innerHTML = alleAnsatte.innerHTML + ansattArtikler(i); // Bruker alle ansatte i arrayet (i).
   }
@@ -53,6 +55,7 @@ function filtrerStilling(stilling) {
   for (let i = 0; i < ansatte.length; i++) {
     // Sjekker om den ansattes stilling matcher den vi søker etter
     if (ansatte[i].stilling === stilling) {
+      // Fått hjelp av chatGPT (sjekk mappedokument for informasjon)
       // Fyller lista med de ansatte som har riktig stilling
       alleAnsatte.innerHTML += ansattArtikler(i);
     }
@@ -65,8 +68,10 @@ function kursListe() {
 
   // En loop som går gjennom alle ansatte
   for (let i = 0; i < ansatte.length; i++) {
+    //Fått hjelp av Claude (sjekk mappedokument for informasjon)
     // En loop som går gjennom kursansvar arrayet til hver ansatt
     for (let j = 0; j < ansatte[i].kursansvar.length; j++) {
+      // Kilde: https://stackoverflow.com/questions/36413159/understanding-nested-for-loops-in-javascript
       const kursnavn = ansatte[i].kursansvar[j];
       // Sjekker om kurset er i listen (unngår duplikater med !)
       if (!kurs.includes(kursnavn)) {
@@ -95,7 +100,7 @@ function alleAnsatteKnapp() {
 
 // Knapp til å vise undervisere
 function filtrerUndervisereKnapp() {
-  const undervisere = document.getElementById("ansatte-info"); // #OPPD3 Bytta id fra "undervisere" til "ansatte-info", innholdet funka ikke med de idene jeg hadde.
+  const undervisere = document.getElementById("ansatte-info"); // #OPPD3 Bytta id fra "undervisere" til "ansatte-info", innholdet funka ikke med de idene jeg hadde, og gir mening at det skal være ansatte-info siden jeg oppdaterer lista i funksjonen.
   undervisere.innerHTML = ""; // Tømmer først
 
   // Loop for å gå gjennom alle ansatte
@@ -111,7 +116,7 @@ function filtrerUndervisereKnapp() {
 
 // Knapp til å vise administrasjonen (gjør akkurat det samme som på undervisere, bare med administrasjon)
 function filtrerAdministrasjonKnapp() {
-  const administrasjon = document.getElementById("ansatte-info"); // #OPPD3 Bytta id fra "administrasjon" til "ansatte-info", innholdet funka ikke med de idene jeg hadde.
+  const administrasjon = document.getElementById("ansatte-info"); // #OPPD3 Bytta id fra "administrasjon" til "ansatte-info", innholdet funka ikke med de idene jeg hadde, og gir mening at det skal være ansatte-info siden jeg oppdaterer lista i funksjonen.
   administrasjon.innerHTML = ""; // Tømmer først
 
   for (let i = 0; i < ansatte.length; i++) {
@@ -125,7 +130,7 @@ function filtrerAdministrasjonKnapp() {
 }
 
 // Funksjon 6 - Ta imot paramtere for all informasjon fra ansatt og legge til ansatt i registeret
-function leggTilAnsatt(
+function leggTilAnsatt( // Fått hjelp av Claude (sjekk mappedokument for informasjon)
   fornavn,
   etternavn,
   stilling,
@@ -159,7 +164,7 @@ function hentAnsatt() {
   const epost = document.getElementById("epost").value;
   const kurs = document.getElementById("kursansvar").value;
   //Gjør kursansvar til array
-  let kursansvar = kurs.split(",").map((k) => k.trim());
+  let kursansvar = kurs.split(",").map((k) => k.trim()); // Fått hjelp av chatGPT (sjekk mappedokument for informasjon)
   // Gjør infromasjonen fra kursansvar inputen om til et array (.split()), slik som det er i registrer.js
   // .map() går gjennom hvert element i arrayet, her er også .trim() inni som fjerner luft/space rundt teksten
 
@@ -178,7 +183,7 @@ function hentAnsatt() {
 // Funksjon 7 - Slett ansatt fra registeret (lagt til knapp i funksjon 1)
 function slettAnsatt(i) {
   //sletter en ansatt i (se i funksjon 1)
-  ansatte.splice(i, 1); // .splice() gjør at den fjerner ansatt i arrayet
+  ansatte.splice(i, 1); // .splice() gjør at den fjerner ansatt i arrayet. Fått hjelp av chatGPT (sjekk mappedokument for informasjon)
   //Viser den nye lista etter ansatt er slettet
   alleAnsatteInfo();
 }

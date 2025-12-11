@@ -14,12 +14,14 @@
       <h2>Legg til ansatt</h2>
       <section class="skjema">
         <form class="legg-til-ansatt">
+          <!--Kilde: https://www.w3schools.com/tags/tag_input.asp-->
           <label for="name">Fornavn </label>
           <input type="text" id="fornavn" />
           <label for="name">Etternavn </label>
           <input type="text" id="etternavn" />
           <label for="name">Stilling </label>
           <select id="stilling">
+            <!--Kilde: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/select-->
             <option>Velg stilling</option>
             <option value="Rektor">Rektor</option>
             <option value="Dekan">Dekan</option>
@@ -33,6 +35,7 @@
           <input type="text" id="epost" />
           <label for="name">Kursansvar </label>
           <input type="text" placeholder="Separer med komma" id="kursansvar" />
+          <!--Kilde: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/placeholder-->
         </form>
         <button onclick="hentAnsatt()">Legg til ansatt</button>
       </section>

@@ -50,7 +50,7 @@ button {
   font-size: 0.9rem;
   background-color: rgb(197, 225, 253);
   border: solid;
-  border-radius: 5px;
+  border-radius: 5px; /*Kilde: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/border-radius*/
   border-color: rgb(88, 185, 249);
 }
 
