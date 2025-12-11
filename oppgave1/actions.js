@@ -15,11 +15,11 @@ function ansattArtikler(i) {
     Kurs = "Ingen kursansvar";
   }
 
-  // Lager html koden for et ansatt kort
+  // Lager html koden for et ansatt kort, og hentet verdier fra register.js.
   // #OPPD3 La til <span class="titler"> og <a href="epost"> på kortene for å kunne endre CSS på de
   const ansattInfo = `
     <article class="ansatt-kort">
-      <h3>${ansatt.fornavn} ${ansatt.etternavn}</h3>
+      <h3>${ansatt.fornavn} ${ansatt.etternavn}</h3> 
       <p><span class="titler">Stilling: </span>${ansatt.stilling}</p>
       <p><span class="titler">Kontor: </span>${ansatt.kontor}</p>
       <p><span class="titler">E-post: </span><a href="epost">${ansatt.epost}</a></p>
@@ -28,13 +28,13 @@ function ansattArtikler(i) {
     </article>
   `;
 
-  //Returner html koden
+  //Returnerer html koden
   return ansattInfo;
 }
 // Funksjon 2 - Alle ansatt kort skal returneres
 function alleAnsatteInfo() {
   const alleAnsatte = document.getElementById("ansatte-info");
-  alleAnsatte.innerHTML = ""; // TØmmer alleAnsatte
+  alleAnsatte.innerHTML = ""; // Tømmer alleAnsatte
   // Loop som starter på 0, så 1, så plusser den på 1 etter hver gang til det ikke er fler igjen i ansatte arrayet
   for (let i = 0; i < ansatte.length; i++) {
     //Kilde: https://www.w3schools.com/js/js_loop_for.asp

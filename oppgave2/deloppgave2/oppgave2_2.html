@@ -13,7 +13,6 @@
       let ordListe = ["kode", "programmering", "design", "data", "variabel"];
 
       function finnLengsteOrd(liste) {
-        // Fjerna "liste" siden jeg putta ordlista inni funksjonen, dermed er denne unødvendig.
         let lengste = "";
 
         for (let i = 0; i < liste.length; i++) {
@@ -35,8 +34,8 @@
       // Her fjerna jeg også den første funksjonen startProgram().Trenger ikke så mange funksjoner for å løse denne oppgaven heller.
       // Slår sammen hentAldre() og regnUtGjennomsnitt() siden hentAldre() var unødvendig å ha som egen funksjon når man kan skrive alt i en. De var også veldig like, så bedre å sammenslå de i regnUtGjennomsnitt().
       function regnUtGjennomsnitt() {
-        // Fjernet alderArray som parameter her, og la heller personer listen inni funksjonen. Dette gjør det lettere og forståelig når jeg skal sammenslå funksjonene.
-        // Personer listen
+        // Fjernet alderArray som parameter, og la heller personer listen inni funksjonen. Dette gjør det lettere og forståelig når jeg skal sammenslå funksjonene.
+        // Personer listen flyttet inni funksjonen
         let personer = [
           { navn: "Ola", alder: 24 },
           { navn: "Kari", alder: 32 },
@@ -48,10 +47,10 @@
         let sum = 0;
         for (let i = 0; i < personer.length; i++) {
           // Bytta alderArray.length til personer.length her, siden jeg ikke har parameter lenger. Her går den igjennom hele listen.
-          sum = sum + personer[i].alder; // Her skriver jeg direkte til lista siden den er i funksjonen (personer). Her legger den sammen alderene.
+          sum = sum + personer[i].alder; // Her skriver jeg direkte til lista siden den er i funksjonen (personer). Her legger den sammen alderne.
         }
 
-        let gjennomsnitt = sum / personer.length; // Istedenfor alderArray.length her, byttet jeg til personer.length siden jeg har puttet personer inni funksjonen. Her finner den ut gjennomsnittet.
+        let gjennomsnitt = sum / personer.length; // Istedenfor alderArray.length her, byttet jeg til personer.length siden jeg har puttet personer lista inni funksjonen. Her finner den ut gjennomsnittet.
         return gjennomsnitt;
       }
 
